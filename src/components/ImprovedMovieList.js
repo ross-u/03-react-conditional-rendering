@@ -30,8 +30,9 @@ class ImprovedMovieList extends Component {
         <button onClick={this.toggleMovies}>Toggle Movies</button>
 
         <ul>
-          {this.state.showMovies
-            ? this.state.movies.map(oneMovie => {
+          {!this.state.showMovies
+            ? null
+            : this.state.movies.map(oneMovie => {
                 return (
                   <ImprovedCard
                     key={oneMovie._id}
@@ -39,8 +40,7 @@ class ImprovedMovieList extends Component {
                     clickToDelete={() => this.deleteMovie(oneMovie._id)}
                   />
                 );
-              })
-            : null}
+              })}
         </ul>
       </div>
     );
