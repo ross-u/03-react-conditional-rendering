@@ -1,4 +1,5 @@
-// src/components/ImprovedCard.js
+//	src/components/ImprovedCard.js
+
 import React from "react";
 
 const improvedCard = props => {
@@ -6,6 +7,19 @@ const improvedCard = props => {
     <div>
       <h2>{props.title}</h2>
       <p>Director: {props.director}</p>
+
+      {/*       
+      {{
+        
+      }(props.hasOscars) ? (
+        <p>Got the Oscar Award!!!!</p>
+      ) : (
+        <p>Great movie but no Oscars! 😔</p>
+      )} 
+      */}
+
+      {props.hasOscars && <p>Got the Oscar Award!!!! </p>}
+      {!props.hasOscars && <p>Great movie but no Oscars! 😔</p>}
 
       <button className="btn-delete" onClick={props.clickToDelete}>
         Delete

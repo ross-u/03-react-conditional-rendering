@@ -9,7 +9,8 @@ class ImprovedMovieList extends Component {
   constructor(props) {
     super();
     this.state = {
-      movies: props.moviesArray
+      movies: props.moviesArray,
+      showMovies: true
     };
   }
 
@@ -19,19 +20,29 @@ class ImprovedMovieList extends Component {
     this.setState({ movies: moviesCopy });
   };
 
+  toggleMovies = () => {
+    this.setState({ showMovies: !this.state.showMovies });
+  };
+
   render() {
     return (
-      <ul>
-        {this.state.movies.map(oneMovie => {
-          return (
-            <ImprovedCard
-              key={oneMovie._id}
-              {...oneMovie}
-              clickToDelete={() => this.deleteMovie(oneMovie._id)}
-            />
-          );
-        })}
-      </ul>
+      <div>
+        <button onClick={this.toggleMovies}>Toggle Movies</button>
+
+        <ul>
+          {this.state.showMovies
+            ? this.state.movies.map(oneMovie => {
+                return (
+                  <ImprovedCard
+                    key={oneMovie._id}
+                    {...oneMovie}
+                    clickToDelete={() => this.deleteMovie(oneMovie._id)}
+                  />
+                );
+              })
+            : null}
+        </ul>
+      </div>
     );
   }
 }
