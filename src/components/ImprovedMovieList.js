@@ -26,7 +26,11 @@ class ImprovedMovieList extends Component {
           return (
             <ImprovedCard
               key={oneMovie._id}
-              {...oneMovie}
+              _id={oneMovie._id}
+              title={oneMovie.title}
+              director={oneMovie.director}
+              hasOscars={oneMovie.hasOscars}
+              IMDbRating={oneMovie.IMDbRating}
               clickToDelete={() => this.deleteMovie(oneMovie._id)}
             />
           );

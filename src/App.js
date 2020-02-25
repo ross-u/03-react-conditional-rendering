@@ -5,7 +5,7 @@ import ImprovedMovieList from "./components/ImprovedMovieList";
 import "./App.css";
 import data from "./data";
 
-// import ConditionalExample from './components/ConditionalExample';
+import ConditionalExample from "./components/ConditionalExample";
 
 class App extends Component {
   render() {
@@ -14,7 +14,8 @@ class App extends Component {
         <Navbar></Navbar>
 
         {/* <h1 style={{background: 'orange'}}>Conditional Example</h1> */}
-        {/* <ConditionalExample title='Hello Ironhackers' > */}
+
+        <ConditionalExample title="Hello Ironhackers" />
 
         <h1>Dynamic Movie List</h1>
         <ImprovedMovieList moviesArray={data}></ImprovedMovieList>
